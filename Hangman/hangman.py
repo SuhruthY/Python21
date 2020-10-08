@@ -1,5 +1,6 @@
 import pygame
 import math
+import random
 
 # Initializing the game
 pygame.init()
@@ -32,17 +33,8 @@ for i in range(26):
 # fonts
 BUTTON_FONT = pygame.font.SysFont("helvitica", 30)
 LETTER_FONT = pygame.font.SysFont("helvitica", 40)
-WORD_FONT = pygame.font.SysFont("helvitica", 60)
+WORD_FONT = pygame.font.SysFont("helvitica", 50)
 TITLE_FONT = pygame.font.SysFont("helvitica", 70)
-
-# game variables
-hangman_status = 0
-word = "DEFAULT"
-guessed = []
-winning_count = 0
-no_of_times = 0
-pause = False
-
 # colors
 WHITE = (255, 255, 255)
 BLACK = (0, 0, 0)
@@ -51,6 +43,29 @@ GREEN = (0, 200, 0)
 BRIGHT_RED = (255, 0, 0)
 BRIGHT_GREEN = (0, 255, 0)
 
+# game variables
+hangman_status = 0
+#word = "DEFAULT"
+guessed = []
+winning_count = 0
+no_of_times = 0
+pause = False
+
+
+# Picking a Random word
+words = []
+f_lst = ["words", "words2", "words3"]
+f_name = random.choice(f_lst)
+with open(f_name + ".txt", "r") as fh:
+    lines = fh.readlines()
+    for line in lines:
+        wrds = line.split()
+        for wrd in wrds:
+            wrd = wrd.upper()
+            words.append(wrd)
+words = list(set(words))
+#print(words)
+
 
 # Functions
 # Refresh Necessary Variables
@@ -58,8 +73,10 @@ def refresh():
     global hangman_status
     global guessed
     global letters
+    global word
 
     hangman_status = 0
+    word = random.choice(words)
     guessed = []
 
     letters = []
@@ -78,16 +95,16 @@ def draw():
     global letters
 
     win.fill(WHITE)
-
-    # draw TITLE_FONT
     text = TITLE_FONT.render("Tinku's Hangman", 1, BLACK)
     win.blit(text, (WIDTH/2 - text.get_width()/2, 20))
 
     # draw word
     display_wrd = ""
     for letter in word:
-        if letter in guessed:
+        if letter in guessed :
             display_wrd += letter + " "
+        elif letter == "-":
+            display_wrd += "  "
         else:
             display_wrd += "_ "
     text = WORD_FONT.render(display_wrd, 1, BLACK)
@@ -166,6 +183,7 @@ def game_over():
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 pygame.quit()
+                quit()
 
         button("Restart", (250,200,100,50), BRIGHT_GREEN, GREEN, main)
         button("Quit", (450,200,100,50), BRIGHT_RED, RED, game_quit)
@@ -182,6 +200,7 @@ def game_intro():
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 pygame.quit()
+                quit()
 
         win.fill(WHITE)
         text = TITLE_FONT.render("Tinku's Hangman", 1, BLACK)
@@ -199,7 +218,7 @@ def main():
     global hangman_status
     global guessed
     global letters
-    global winning_count
+    global word
 
     FPS = 60
     clock = pygame.time.Clock()
@@ -211,6 +230,7 @@ def main():
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 run = False
+                game_quit()
 
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_p:
@@ -233,16 +253,17 @@ def main():
         # checking your won
         won = True
         for letter in word:
-            if letter not in guessed:
-                won = False
-                break
+            if letter != "-":
+                if letter not in guessed:
+                    won = False
+                    break
 
         if won:
-            winning_count += 1
             display_message("--- YOU WIN ---")
             break
 
         if hangman_status == 6:
+            display_message("The word is " + word)
             hangman_status = 0
             display_message("--- YOU LOSE ---")
             game_over()
@@ -253,3 +274,4 @@ def main():
 game_intro()
 
 pygame.quit()
+quit()
