@@ -2,6 +2,7 @@ from tkinter import *
 from PIL import ImageTk, Image
 import sqlite3
 import datetime
+from addcontacts import add
 
 # --- INITAILIZE DATABASE ---
 # connect to database
@@ -11,29 +12,16 @@ cur = conn.cursor()
 # create a table
 cur.executescript(""" 
 CREATE TABLE IF NOT EXISTS People(
-            person_id INTEGER PRIMARY KEY,
-            first_name TEXT,
-            last_name TEXT,
-            ph_no INTEGER,
-            email TEXT,
-            address_id INTEGER,
-            FOREIGN KEY (address_id) 
-                REFERENCES Address(address_id)
-            );
-            
-CREATE TABLE IF NOT EXISTS Address(
-            address_id INTEGER PRIMARY KEY,
-            house_no TEXT,
-            street TEXT,
-            city TEXT,
-            country TEXT,
-            zipcode TEXT
-            );
-            """)
+            Person_ID INTEGER PRIMARY KEY AUTOINCREMENT,
+            First_Name TEXT,
+            Last_Name TEXT,
+            Phone_no INTEGER,
+            Email_ID TEXT,
+            Address TEXT
+            )""")
 
 # closing database
 conn.commit()
-conn.close()
 
 
 # --- GLOBAL VARIABLES ---
@@ -49,27 +37,19 @@ HELVI21 = "Helvitica 21 bold"
 ARIAL12 = "arial 10 bold"
 
 
-def show():
+## --- Functions ---
+# Open Add function
+def open_add():
     global my_cntct
 
-    # connect to database
-    conn = sqlite3.connect("mycontacts.db")
-    cur = conn.cursor()
-
-    cur.execute("SELECT * FROM Address")
-    crnt_recs = cur.fetchall()
-
-    cur.execute("SELECT * FROM People")
-    crnt_ppls = cur.fetchall()
-
-    # closing database
-    conn.commit()
-    conn.close()
-
+    my_cntct.destroy()
+    add()
 
 # View Function
 # a function to view all contacts
 def view():
+    global my_cntct
+
     my_cntct = Toplevel()
     my_cntct.title("My Contacts Book")
     my_cntct.iconbitmap("contact-book.ico")
@@ -108,10 +88,22 @@ def view():
     lst_box.config(yscrollcommand=scrl_bar.set)
     scrl_bar.config(command=lst_box.yview)
 
+    # Creating Buttons
+    add_btn = Button(base, text="Add", width=12, font=ARIAL12, command=open_add)
+    updt_btn = Button(base, text="Update", width=12, font=ARIAL12)
+    dsply_btn = Button(base, text="Display", width=12, font=ARIAL12)
+    del_btn = Button(base, text="Delete", width=12, font=ARIAL12)
+
+    add_btn.grid(row=0, column=2, padx=20, pady=10, columnspan=2, sticky=N)
+    updt_btn.grid(row=0, column=2, padx=20, pady=50, columnspan=2, sticky=N)
+    dsply_btn.grid(row=0, column=2, padx=20, pady=90, columnspan=2, sticky=N)
+    del_btn.grid(row=0, column=2, padx=20, pady=130, columnspan=2, sticky=N)
+
+    contacts = cur.execute("select * from People").fetchall()
+
+    count = 0
+    for contact in contacts:
+        lst_box.insert(count, f"{contact[0]}. {contact[1]}{contact[2]}")
+        count += 1
 
 
-    #show_btn = Button(my_cntct, text="Show Record", command=show)
-    #show_btn.place(x=250, y=150)
-
-    #exit_btn = Button(my_cntct, text="Main Menu", command=my_cntct.destroy)
-    #exit_btn.place(x=250, y=100)

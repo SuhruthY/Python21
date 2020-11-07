@@ -3,6 +3,7 @@ from PIL import Image,ImageTk
 import tkinter.font as font
 import datetime
 from mycontacts import view
+from addcontacts import add
 
 
 # --- INITIALIZE TKINTER ---
@@ -27,9 +28,6 @@ ARIAL12 = "arial 10 bold"
 
 # Additional Fonts by Tkinter
 TIMES = font.Font(family="Times", size=12)
-
-
-# --- All Functions ---
 
 
 # --- MAIN WINDOW ---
@@ -57,7 +55,8 @@ date.place(x=530, y=120)
 # Designing Base Frame
 view_btn = Button(base, text="View Contacts", fg=PEACH, activebackground=LAVENDER,
                   font=TIMES, padx=7, pady=7, command=view)
-add_btn  = Button(base, text="Add Contacts",  fg=PEACH, activebackground=LAVENDER, font=TIMES, padx=9, pady=7)
+add_btn  = Button(base, text="Add Contacts",  fg=PEACH, activebackground=LAVENDER,
+                  font=TIMES, padx=9, pady=7, command=add)
 edit_btn = Button(base, text="Edit Contacts",  fg=PEACH, activebackground=LAVENDER, font=TIMES, padx=10, pady=7)
 help_btn = Button(base, text="Help ?",  fg=PEACH, activebackground=LAVENDER, font=TIMES, padx=30, pady=7)
 
