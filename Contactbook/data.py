@@ -4,7 +4,7 @@ import json
 conn = sqlite3.connect("mycontacts.db")
 cur = conn.cursor()
 
-with open("./fake_data/dataNov-7-2020.json", "r") as fh:
+with open("./data/fake_data/dataNov-7-2020.json", "r") as fh:
     data = json.load(fh)
 
 for contact in data:

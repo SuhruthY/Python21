@@ -1,22 +1,21 @@
+import os
+import datetime
+import sqlite3
 from tkinter import *
 from tkinter import messagebox
 from PIL import ImageTk, Image
-import datetime
-import sqlite3
+from dotenv import load_dotenv
+
 
 
 # --- GLOBAL VARIABLES ---
+# loading all the variables
+load_dotenv()
+
 # get today's date
 DATE = datetime.date.today()
 
-# Colors Hex values
-LAVENDER = "#E6E6FA"
-PEACH = "#FD7272"
-
-# Header Fonts
-HELVI21 = "Helvitica 21 bold"
-ARIAL12 = "arial 10 bold"
-
+# Loding the database
 conn = sqlite3.connect("mycontacts.db")
 cur = conn.cursor()
 
@@ -24,27 +23,22 @@ cur = conn.cursor()
 # Add Function
 # a function to add new contacts
 def add():
-
-    global f_name_ntry
-    global l_name_ntry
-    global ph_no_ntry
-    global email_ntry
-    global address_ntry
+    global f_name_ntry, l_name_ntry, ph_no_ntry, email_ntry, address_ntry
 
     my_cntct = Toplevel()
     my_cntct.title("My Contacts Book")
-    my_cntct.iconbitmap("contact-book.ico")
+    my_cntct.iconbitmap("./data/icons/contact-book.ico")
     my_cntct.geometry("650x550+350+250")
     my_cntct.resizable(False, False)
 
     # Create Main Frames
     header = Frame(my_cntct, height=100, bg="white")
     header.pack(fill=X)
-    base = Frame(my_cntct, height=550, bg=LAVENDER)
+    base = Frame(my_cntct, height=550, bg=os.environ.get("LAVPINK"))
     base.pack(fill=X)
 
     # Designing Header Frame
-    img = Image.open("add-user.png")
+    img = Image.open("./data/icons/add-user.png")
     width, height = img.size
     img = img.resize((width // 8, height // 8), Image.ANTIALIAS)
     photoimg = ImageTk.PhotoImage(img)
@@ -52,20 +46,20 @@ def add():
     img_lbl.image = photoimg
     img_lbl.place(x=120, y=15)
 
-    heading = Label(header, text="Add New Contact", font=HELVI21,
-                    bg="White", fg=PEACH)
+    heading = Label(header, text="Add New Contact", font=os.environ.get("HELVI21"),
+                    bg="White", fg=os.environ.get("PEACH"))
     heading.place(x=200, y=40)
-    date = Label(header, text="Date: " + str(DATE), font=ARIAL12,
-                 bg="White", fg=PEACH)
+    date = Label(header, text="Date: " + str(DATE), font=os.environ.get("ARIAl12"),
+                 bg="White", fg=os.environ.get("PEACH"))
     date.place(x=530, y=70)
 
     # Designing Base Frame
     # Creating required labels
-    f_name_lbl = Label(base, text="First Name:", font=ARIAL12, bg=LAVENDER)
-    l_name_lbl = Label(base, text="Last Name:", font=ARIAL12, bg=LAVENDER)
-    ph_no_lbl = Label(base, text="Phone Number:", font=ARIAL12, bg=LAVENDER)
-    email_lbl = Label(base, text="Email Address:", font=ARIAL12, bg=LAVENDER)
-    address_lbl = Label(base, text="Address:", font=ARIAL12, bg=LAVENDER)
+    f_name_lbl = Label(base, text="First Name:", font=os.environ.get("ARIAL12"), bg=os.environ.get("LAVPINK"))
+    l_name_lbl = Label(base, text="Last Name:", font=os.environ.get("ARIAL12"), bg=os.environ.get("LAVPINK"))
+    ph_no_lbl = Label(base, text="Phone Number:", font=os.environ.get("ARIAL12"), bg=os.environ.get("LAVPINK"))
+    email_lbl = Label(base, text="Email Address:", font=os.environ.get("ARIAL12"), bg=os.environ.get("LAVPINK"))
+    address_lbl = Label(base, text="Address:", font=os.environ.get("ARIAL12"), bg=os.environ.get("LAVPINK"))
 
     f_name_lbl.place(x=40, y=40)
     l_name_lbl.place(x=40, y=80)
@@ -86,24 +80,16 @@ def add():
     email_ntry.place(x=150, y=160)
     address_ntry.place(x=150, y=200)
 
-    add_prsn_btn = Button(base, text="Add Contact", width=12, font=ARIAL12,
+    add_prsn_btn = Button(base, text="Add Contact", width=12, font=os.environ.get("ARIAL12"),
                           command=add_contact)
     add_prsn_btn.place(x=150, y=400)
 
 # Add contact function
 # Add the data to database
 def add_contact():
-    global f_name_ntry
-    global l_name_ntry
-    global ph_no_ntry
-    global email_ntry
-    global address_ntry
+    global f_name_ntry, l_name_ntry, ph_no_ntry, email_ntry, address_ntry
 
-    first_name = f_name_ntry.get()
-    last_name =  l_name_ntry.get()
-    phone_no = ph_no_ntry.get()
-    email_ID = email_ntry.get()
-    address = address_ntry.get(1.0, "end-1c")
+    first_name,last_name, phone_no, email_ID, address = f_name_ntry.get(), l_name_ntry.get(), ph_no_ntry.get(), email_ntry.get(),address_ntry.get(1.0, "end-1c")
 
     if first_name and last_name and phone_no and email_ID and address:
         try:
@@ -112,7 +98,7 @@ def add_contact():
             conn.commit()
             messagebox.showinfo("Sucess", "Contact added")
         except Exception as ex:
-            messagebox.showerror("Error", str(e))
+            messagebox.showerror("Error", str(ex))
 
     else:
         messagebox.showerror("Error", "Fill all the fields", icon="warning")
