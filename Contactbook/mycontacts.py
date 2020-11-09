@@ -7,6 +7,7 @@ from tkinter import messagebox
 from PIL import ImageTk, Image
 from addcontacts import add
 from updatecontacts import update
+from displaycontacts import display
 
 # --- INITAILIZE DATABASE ---
 # connect to database
@@ -26,7 +27,6 @@ CREATE TABLE IF NOT EXISTS People(
 
 # closing database
 conn.commit()
-
 
 # --- GLOBAL VARIABLES ---
 # loading all the variables
@@ -49,10 +49,44 @@ def open_update():
 
     try:
         index = lst_box.curselection()
-        user_id = lst_box.get(index)[0]
+        user_id = lst_box.get(index).split()[0]
         update(user_id)
     except Exception as ex:
         messagebox.showerror('Error', str(ex), icon="warning")
+
+# Open Display Function
+def open_display():
+    global lst_box
+
+    try:
+        index = lst_box.curselection()
+        user_id = lst_box.get(index).split()[0]
+        display(user_id)
+    except Exception as ex:
+        messagebox.showerror('Error', str(ex), icon="warning")
+
+# function to delete a contact
+def delete_contact():
+    global my_cntct
+    global lst_box
+
+    try:
+        index = lst_box.curselection()
+        user_id = lst_box.get(index).split()[0]
+
+        ans = messagebox.askquestion("Warning", f"are you sure, you wanna delete '{lst_box.get(index).split()[1]}' ?")
+
+        if ans == "yes":
+            try:
+                cur.execute(f" delete from People where Person_ID = {user_id}")
+                conn.commit()
+                messagebox.showinfo("Sucess", "Contact Deleted")
+                my_cntct.destroy()
+            except Exception as ex:
+                messagebox.showinfo("Info", str(ex))
+
+    except Exception as ex:
+        messagebox.showinfo("Info", str(ex))
 
 
 # View Function
@@ -101,8 +135,8 @@ def view():
     # Creating Buttons
     add_btn = Button(base, text="Add", width=12, font=os.environ.get("ARIAL12"), command=open_add)
     updt_btn = Button(base, text="Update", width=12, font=os.environ.get("ARIAL12"), command=open_update)
-    dsply_btn = Button(base, text="Display", width=12, font=os.environ.get("ARIAL12"))
-    del_btn = Button(base, text="Delete", width=12, font=os.environ.get("ARIAL12"))
+    dsply_btn = Button(base, text="Display", width=12, font=os.environ.get("ARIAL12"), command=open_display)
+    del_btn = Button(base, text="Delete", width=12, font=os.environ.get("ARIAL12"), command=delete_contact)
 
     add_btn.grid(row=0, column=2, padx=20, pady=10, columnspan=2, sticky=N)
     updt_btn.grid(row=0, column=2, padx=20, pady=50, columnspan=2, sticky=N)

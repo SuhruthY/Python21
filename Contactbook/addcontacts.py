@@ -23,18 +23,18 @@ cur = conn.cursor()
 # Add Function
 # a function to add new contacts
 def add():
-    global f_name_ntry, l_name_ntry, ph_no_ntry, email_ntry, address_ntry
+    global add_cntct, f_name_ntry, l_name_ntry, ph_no_ntry, email_ntry, address_ntry
 
-    my_cntct = Toplevel()
-    my_cntct.title("My Contacts Book")
-    my_cntct.iconbitmap("./data/icons/contact-book.ico")
-    my_cntct.geometry("650x550+350+250")
-    my_cntct.resizable(False, False)
+    add_cntct = Toplevel()
+    add_cntct.title("My Contacts Book")
+    add_cntct.iconbitmap("./data/icons/contact-book.ico")
+    add_cntct.geometry("650x550+350+250")
+    add_cntct.resizable(False, False)
 
     # Create Main Frames
-    header = Frame(my_cntct, height=100, bg="white")
+    header = Frame(add_cntct, height=100, bg="white")
     header.pack(fill=X)
-    base = Frame(my_cntct, height=550, bg=os.environ.get("LAVPINK"))
+    base = Frame(add_cntct, height=550, bg=os.environ.get("LAVPINK"))
     base.pack(fill=X)
 
     # Designing Header Frame
@@ -87,7 +87,7 @@ def add():
 # Add contact function
 # Add the data to database
 def add_contact():
-    global f_name_ntry, l_name_ntry, ph_no_ntry, email_ntry, address_ntry
+    global add_cntct, f_name_ntry, l_name_ntry, ph_no_ntry, email_ntry, address_ntry
 
     first_name,last_name, phone_no, email_ID, address = f_name_ntry.get(), l_name_ntry.get(), ph_no_ntry.get(), email_ntry.get(),address_ntry.get(1.0, "end-1c")
 
@@ -99,6 +99,8 @@ def add_contact():
             messagebox.showinfo("Sucess", "Contact added")
         except Exception as ex:
             messagebox.showerror("Error", str(ex))
+
+        add_cntct.destroy()
 
     else:
         messagebox.showerror("Error", "Fill all the fields", icon="warning")

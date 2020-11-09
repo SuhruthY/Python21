@@ -18,6 +18,7 @@ load_dotenv()
 DATE = datetime.date.today()
 
 ## ---- Functions ----
+# function that updates the database
 def updt_contact():
     global my_updt, person_id, f_name_ntry, l_name_ntry, ph_no_ntry, email_ntry, address_ntry
 
@@ -36,6 +37,7 @@ def updt_contact():
     except Exception as ex:
         messagebox.showerror("Error", str(ex), icon="warning")
 
+# function to update existing contact
 def update(cntct_id):
     global my_updt, person_id, f_name_ntry, l_name_ntry, ph_no_ntry, email_ntry, address_ntry
 
@@ -66,7 +68,7 @@ def update(cntct_id):
     img_lbl.image = photoimg
     img_lbl.place(x=120, y=15)
 
-    heading = Label(header, text="Add New Contact", font=os.environ.get("HELVI21"),
+    heading = Label(header, text="Update Contact", font=os.environ.get("HELVI21"),
                     bg="White", fg=os.environ.get("PEACH"))
     heading.place(x=200, y=40)
     date = Label(header, text="Date: " + str(DATE), font=os.environ.get("ARIAl12"),
