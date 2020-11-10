@@ -2,7 +2,6 @@ import os
 import datetime
 import sqlite3
 from tkinter import *
-from tkinter import messagebox
 from PIL import ImageTk, Image
 from dotenv import load_dotenv
 

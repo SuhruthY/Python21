@@ -1,6 +1,7 @@
 import os
 import tkinter.font as font
 import datetime
+import webbrowser
 from dotenv import load_dotenv
 from tkinter import *
 from PIL import Image,ImageTk
@@ -24,8 +25,13 @@ DATE = datetime.date.today()
 # Additional Fonts by Tkinter
 TIMES = font.Font(family="Times", size=12)
 
+## --- FUNCTIONS ---
+# function to call webpage link
+def callback():
+    link = "https://github.com/3D-soul/FirstFifty/blob/master/Contactbook/contactbook.md"
+    webbrowser.open(link, new=2)
 
-# --- MAIN WINDOW ---
+## --- MAIN WINDOW ---
 # Create Main Frames
 header = Frame(root, height=150, bg="white")
 header.pack(fill=X)
@@ -52,15 +58,12 @@ view_btn = Button(base, fg=os.environ.get("PEACH"), activebackground=os.environ.
                   text="View Contacts", font=TIMES, padx=7, pady=7, command=view)
 add_btn  = Button(base, fg=os.environ.get("PEACH"), activebackground=os.environ.get("LAVENDER"),
                   text="Add Contacts", font=TIMES, padx=9, pady=7, command=add)
-edit_btn = Button(base, fg=os.environ.get("PEACH"), activebackground=os.environ.get("LAVENDER"),
-                  text="Edit Contacts", font=TIMES, padx=10, pady=7)
 help_btn = Button(base, fg=os.environ.get("PEACH"), activebackground=os.environ.get("LAVENDER"),
-                  text="Help ?", font=TIMES, padx=30, pady=7)
+                  text="Help ?", font=TIMES, padx=30, pady=7, command=callback)
 
-view_btn.place(x=260, y=60)
-add_btn.place(x=260, y=120)
-edit_btn.place(x=260, y=180)
-help_btn.place(x=260, y=240)
+view_btn.place(x=260, y=80)
+add_btn.place(x=260, y=150)
+help_btn.place(x=260, y=220)
 
 
 

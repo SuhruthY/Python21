@@ -103,7 +103,7 @@ def view():
     # Create Main Frames
     header = Frame(my_cntct, height=100, bg="white")
     header.pack(fill=X)
-    base = Frame(my_cntct, height=550, bg=os.environ.get("PURPLE"))
+    base = Frame(my_cntct, height=550, bg=os.environ.get("MED_LAVMAGENTA"))
     base.pack(fill=X)
 
     # Designing Header Frame
