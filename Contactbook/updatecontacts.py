@@ -6,16 +6,19 @@ from tkinter import messagebox
 from PIL import ImageTk, Image
 from dotenv import load_dotenv
 
-# Fetching the database
+
+## ---- Fetching the database ---
 conn = sqlite3.connect("mycontacts.db")
 cur = conn.cursor()
 
-# --- GLOBAL VARIABLES ---
+
+## --- GLOBAL VARIABLES ---
 # loading all the variables
 load_dotenv()
 
 # get today's date
 DATE = datetime.date.today()
+
 
 ## ---- Functions ----
 # function that updates the database
@@ -44,7 +47,7 @@ def update(cntct_id):
     my_updt = Toplevel()
     my_updt.title("My Contacts Book")
     my_updt.iconbitmap("./data/icons/contact-book.ico")
-    my_updt.geometry("650x550+350+250")
+    my_updt.geometry(os.environ.get("GEOMETRY"))
     my_updt.resizable(False, False)
 
     # Create Main Frames

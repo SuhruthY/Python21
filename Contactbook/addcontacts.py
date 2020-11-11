@@ -7,19 +7,20 @@ from PIL import ImageTk, Image
 from dotenv import load_dotenv
 
 
+## --- Loding the database ---
+conn = sqlite3.connect("mycontacts.db")
+cur = conn.cursor()
 
-# --- GLOBAL VARIABLES ---
+
+## --- GLOBAL VARIABLES ---
 # loading all the variables
 load_dotenv()
 
 # get today's date
 DATE = datetime.date.today()
 
-# Loding the database
-conn = sqlite3.connect("mycontacts.db")
-cur = conn.cursor()
 
-
+## --- FUNCTIONS ---
 # Add Function
 # a function to add new contacts
 def add():
@@ -28,7 +29,7 @@ def add():
     add_cntct = Toplevel()
     add_cntct.title("My Contacts Book")
     add_cntct.iconbitmap("./data/icons/contact-book.ico")
-    add_cntct.geometry("650x550+350+250")
+    add_cntct.geometry(os.environ.get("GEOMETRY"))
     add_cntct.resizable(False, False)
 
     # Create Main Frames

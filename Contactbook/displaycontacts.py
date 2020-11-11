@@ -5,16 +5,19 @@ from tkinter import *
 from PIL import ImageTk, Image
 from dotenv import load_dotenv
 
-# Fetching the database
+
+## ---- Fetching the database ---
 conn = sqlite3.connect("mycontacts.db")
 cur = conn.cursor()
 
-# --- GLOBAL VARIABLES ---
+
+## --- GLOBAL VARIABLES ---
 # loading all the variables
 load_dotenv()
 
 # get today's date
 DATE = datetime.date.today()
+
 
 ## --- FUNCTIONS ---
 # function to display the existing contcat
@@ -22,7 +25,7 @@ def display(cntct_id):
     my_dsply = Toplevel()
     my_dsply.title("My Contacts Book")
     my_dsply.iconbitmap("./data/icons/contact-book.ico")
-    my_dsply.geometry("650x550+350+250")
+    my_dsply.geometry(os.environ.get("GEOMETRY"))
     my_dsply.resizable(False, False)
 
     # Create Main Frames

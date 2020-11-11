@@ -9,7 +9,8 @@ from addcontacts import add
 from updatecontacts import update
 from displaycontacts import display
 
-# --- INITAILIZE DATABASE ---
+
+## --- INITAILIZE DATABASE ---
 # connect to database
 conn = sqlite3.connect("mycontacts.db")
 cur = conn.cursor()
@@ -28,7 +29,8 @@ CREATE TABLE IF NOT EXISTS People(
 # closing database
 conn.commit()
 
-# --- GLOBAL VARIABLES ---
+
+## --- GLOBAL VARIABLES ---
 # loading all the variables
 load_dotenv()
 
@@ -39,36 +41,42 @@ DATE = datetime.date.today()
 ## --- FUNCTIONS ---
 # Open Add Function
 def open_add():
-    global my_cntct
-    my_cntct.destroy()
+    add_btn["state"] = DISABLED
+    set_btn["state"] = NORMAL
+
     add()
+    my_cntct.iconify()
 
 # Open Update Function
 def open_update():
-    global lst_box
 
     try:
         index = lst_box.curselection()
         user_id = lst_box.get(index).split()[0]
         update(user_id)
+        updt_btn["state"] = DISABLED
+        set_btn["state"] = NORMAL
+        my_cntct.iconify()
     except Exception as ex:
         messagebox.showerror('Error', str(ex), icon="warning")
 
+
 # Open Display Function
 def open_display():
-    global lst_box
 
     try:
+
         index = lst_box.curselection()
         user_id = lst_box.get(index).split()[0]
         display(user_id)
+        dsply_btn["state"] = DISABLED
+        set_btn["state"] = NORMAL
+        my_cntct.iconify()
     except Exception as ex:
         messagebox.showerror('Error', str(ex), icon="warning")
 
 # function to delete a contact
 def delete_contact():
-    global my_cntct
-    global lst_box
 
     try:
         index = lst_box.curselection()
@@ -77,6 +85,8 @@ def delete_contact():
         ans = messagebox.askquestion("Warning", f"are you sure, you wanna delete '{lst_box.get(index).split()[1]}' ?")
 
         if ans == "yes":
+            del_btn["state"] = DISABLED
+            set_btn["state"] = NORMAL
             try:
                 cur.execute(f" delete from People where Person_ID = {user_id}")
                 conn.commit()
@@ -88,16 +98,27 @@ def delete_contact():
     except Exception as ex:
         messagebox.showinfo("Info", str(ex))
 
+# function to set all the buttons
+def set_btns():
+    qns = messagebox.askquestion("Warning", "Do you wanna enable the buttons?", icon="warning")
+
+    if qns == "yes":
+        add_btn["state"] = NORMAL
+        updt_btn["state"] = NORMAL
+        dsply_btn["state"] = NORMAL
+
+        set_btn["state"] = DISABLED
+
 
 # View Function
 # a function to view all contacts
 def view():
-    global my_cntct, lst_box
+    global my_cntct, lst_box, add_btn, dsply_btn, updt_btn, del_btn, set_btn
 
     my_cntct = Toplevel()
     my_cntct.title("My Contacts Book")
     my_cntct.iconbitmap("./data/icons/contact-book.ico")
-    my_cntct.geometry("650x550+350+250")
+    my_cntct.geometry(os.environ.get("GEOMETRY"))
     my_cntct.resizable(False, False)
 
     # Create Main Frames
@@ -137,11 +158,14 @@ def view():
     updt_btn = Button(base, text="Update", width=12, font=os.environ.get("ARIAL12"), command=open_update)
     dsply_btn = Button(base, text="Display", width=12, font=os.environ.get("ARIAL12"), command=open_display)
     del_btn = Button(base, text="Delete", width=12, font=os.environ.get("ARIAL12"), command=delete_contact)
+    set_btn = Button(base, text="Reset", width=7, font=os.environ.get("ARIAL12"), command=set_btns)
+
 
     add_btn.grid(row=0, column=2, padx=20, pady=10, columnspan=2, sticky=N)
     updt_btn.grid(row=0, column=2, padx=20, pady=50, columnspan=2, sticky=N)
     dsply_btn.grid(row=0, column=2, padx=20, pady=90, columnspan=2, sticky=N)
     del_btn.grid(row=0, column=2, padx=20, pady=130, columnspan=2, sticky=N)
+    set_btn.grid(row=0, column=4, padx=20, pady=200, columnspan=2, sticky=N)
 
     contacts = cur.execute("select * from People").fetchall()
 
@@ -149,5 +173,7 @@ def view():
     for contact in contacts:
         lst_box.insert(count, f"{contact[0]}. {contact[1]}{contact[2]}")
         count += 1
+
+
 
 
