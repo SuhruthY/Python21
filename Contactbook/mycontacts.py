@@ -82,7 +82,8 @@ def delete_contact():
         index = lst_box.curselection()
         user_id = lst_box.get(index).split()[0]
 
-        ans = messagebox.askquestion("Warning", f"are you sure, you wanna delete '{lst_box.get(index).split()[1]}' ?")
+        ans = messagebox.askquestion("Warning", f"Are you sure, you wanna delete '{lst_box.get(index).split()[1]}' ?",
+                                     icon="warning")
 
         if ans == "yes":
             del_btn["state"] = DISABLED
