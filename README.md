@@ -5,9 +5,16 @@ First Fifty is my own personal projects creating 50 beginner to advanced level p
 ### Table of Contents
 
 ```markdown
-1. [**Madlibs**](#Madlibs)
-2. [**Guess a Number**](#Guess a number)
-3. [**Dice Simulator**](#Dice Simulator)
+1. **Madlibs**
+2. **Number Guessing**
+3. **Text Based Adventure**
+4. **Dice Simulator**
+5. **Hangman**
+6. **Contact Book**
+7. **Email Slicer**
+8. **Binary Search Algorithm**
+9. **Desktop Notifier**
+10. **Python Story Generator**
 ```
 
 For more details see [GitHub Repository](https://github.com/3D-soul/FirstFifty).
