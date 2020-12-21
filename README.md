@@ -1,37 +1,21 @@
-## Welcome to GitHub Pages
+## Description
 
-You can use the [editor on GitHub](https://github.com/3D-soul/FirstFifty/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+First Fifty is my own personal projects creating 50 beginner to advanced level python projects. I have learnt a wide range of skills including project management, working with git branches and git pages, documenting projects by README, html and jekyll etc. Up next I will tell you all about these thing in great detail...
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
-
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+### Table of Contents
 
 ```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
+1. [**Madlibs**](#Madlibs)
+2. [**Guess a Number**](#Guess a number)
+3. [**Dice Simulator**](#Dice Simulator)
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+For more details see [GitHub Repository](https://github.com/3D-soul/FirstFifty).
 
-### Jekyll Themes
+### Madlibs
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/3D-soul/FirstFifty/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+In this Project I...
 
-### Support or Contact
+### Guess a Number
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+In this Project I ...
