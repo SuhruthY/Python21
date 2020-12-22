@@ -24,4 +24,4 @@ First Fifty is my own personal projects creating 50 beginner to advanced level p
 -
 
 
-For more details see [GitHub Repository](https://github.com/3D-soul/FirstFifty).
+For more details see [First Fifity](https://3d-soul.github.io/FirstFifty/).
