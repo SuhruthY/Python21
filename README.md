@@ -1,4 +1,4 @@
-Hi, I'm 3D-psyche,\
+Hi,\
 &nbsp;&nbsp;&nbsp;&nbsp;I'm going to give you a brief info of each and every project in my First-Fifty including project goals, requirements, sources and resources.
 
 # Overview
