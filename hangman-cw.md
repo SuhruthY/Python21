@@ -1,12 +1,12 @@
 # How I created a Hangaman game using pygame?
-Hi, welcome to 'Code walk-thorugh' by SuhruthY.
+Hi, welcome to *Code walk-thorugh* by SuhruthY.
 
-This is completely a code walkthrough of my [Hangman project](https://suhruthy.github.io/FirstFifty/) you can find detailed explanation of games rules, resources, code files, etc at my [project wikis](https://github.com/SuhruthY/FirstFifty/wiki/Hangman) or [code samples](https://github.com/SuhruthY/FirstFifty/blob/master/Hangman/hangman.py).
+This is completely a code walkthrough of my *Hangman project* you can find detailed explanation of games rules, resources, code files, etc on [readme page](https://suhruthy.github.io/FirstFifty/) or [code sample](https://github.com/SuhruthY/FirstFifty/blob/master/Hangman/hangman.py).
 &nbsp;
 ### Installing  and Intializing pygame:
 - Type this command on your terminal.
 ```python
-> pip install pygame
+pip install pygame
 ```
 ---
 ```
@@ -45,7 +45,6 @@ note: you can download free icons from [flat-icon](https://www.flaticon.com/) bu
 &nbsp;
 ## GLobal variables
 ### loading words list and images
-- You will find three text files named in [hangman project folder](https://github.com/SuhruthY/FirstFifty/tree/master/Hangman).
 - Here I'm choosing a random file and loading all of the words into words list.
 ```python
 words = []
@@ -69,7 +68,6 @@ for i in range(7):
     image = pygame.image.load("hangman" + str(i) +".png")
     images.append(image)
 ```
-note : Again If you don't know why we are using images,then check out the [wikis](https://github.com/SuhruthY/FirstFifty/wiki/Hangman)
 &nbsp;
 ### Buttons:
 - You can choose any shape to your buttons. Here we are making round ones.
@@ -89,7 +87,7 @@ for i in range(26):
     y = start_y + (i // 13) * ((GAP + RADIUS * 2))
     letters.append([x, y, chr(A + i), True])
 ```
-note: Make sure you can add all of the alphabets and fit them to your screen.
+note: If you are using your own shape , then make are adding all of the alphabets and fit them to your screen.
 &nbsp;
 ### Game variables
 - These variables will be changed during the game play
@@ -102,15 +100,15 @@ no_of_times = 0
 pause = False
 ```
 &nbsp;
-## Others
+### Others
 - There are other variables like fonts and colors which I'm leaving to you to choose.
 - But check the syntax below to creating a font or color
-```
-# fonts
+```markdown
+### fonts
  pygame.font.SysFont("font_name", 30)
  eg: BUTTON_FONT = pygame.font.SysFont("helvitica", 30)
 
-# colors
+### colors
 NAME = (R, G. B)
 eg: 
 1. WHITE = (255, 255, 255)
