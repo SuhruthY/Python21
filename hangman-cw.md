@@ -97,7 +97,7 @@ pause = False
 ### Others
 - There are other variables like fonts and colors which I'm leaving to you to choose.
 - But check the syntax below to creating a font or color. \
-```markdown
+```python
 ## fonts
  pygame.font.SysFont("font_name", 30)
  eg: BUTTON_FONT = pygame.font.SysFont("helvitica", 30)
