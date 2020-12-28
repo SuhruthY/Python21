@@ -16,7 +16,6 @@ Collecting pygame
 Installing collected packages: pygame
 Successfully installed pygame-2.0.1
 ```
-&nbsp;
 - First import the module pygame.
 - Start with the code as shown below and don't forget to quit pygame.
 ```python
@@ -42,7 +41,6 @@ pygame.display.set_icon(ICON)
 ```
 note: you can download free icons from [flat-icon](https://www.flaticon.com/) but make sure you download the license or attribute them.
 &nbsp;
-&nbsp;
 ## GLobal variables
 ### loading words list and images
 - Here I'm choosing a random file and loading all of the words into words list.
@@ -59,7 +57,6 @@ with open(f_name + ".txt", "r") as fh:
             words.append(wrd)
 words = list(set(words))
 ``` 
-&nbsp;
 - Here I'm loading all of the neccessary images for the game.
 ```python 
 # Load images
@@ -68,7 +65,6 @@ for i in range(7):
     image = pygame.image.load("hangman" + str(i) +".png")
     images.append(image)
 ```
-&nbsp;
 ### Buttons:
 - You can choose any shape to your buttons. Here we are making round ones.
 - We are choosing the radius and gap between each to be 20(px) and 15(px) respectively
@@ -88,7 +84,6 @@ for i in range(26):
     letters.append([x, y, chr(A + i), True])
 ```
 note: If you are using your own shape , then make are adding all of the alphabets and fit them to your screen.
-&nbsp;
 ### Game variables
 - These variables will be changed during the game play
 ```python
@@ -99,16 +94,15 @@ winning_count = 0
 no_of_times = 0
 pause = False
 ```
-&nbsp;
 ### Others
 - There are other variables like fonts and colors which I'm leaving to you to choose.
 - But check the syntax below to creating a font or color
-```markdown
-### fonts
+```python
+## fonts
  pygame.font.SysFont("font_name", 30)
  eg: BUTTON_FONT = pygame.font.SysFont("helvitica", 30)
 
-### colors
+## colors
 NAME = (R, G. B)
 eg: 
 1. WHITE = (255, 255, 255)
