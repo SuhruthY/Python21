@@ -85,7 +85,7 @@ for i in range(26):
 ```
 note: If you are using your own shape , then make are adding all of the alphabets and fit them to your screen.
 ### Game variables
-- These variables will be changed during the game play
+- These variables will be changed during the game play.
 ```python
 # game variables
 hangman_status = 0
@@ -96,8 +96,8 @@ pause = False
 ```
 ### Others
 - There are other variables like fonts and colors which I'm leaving to you to choose.
-- But check the syntax below to creating a font or color
-```{markdown}
+- But check the syntax below to creating a font or color. \
+```markdown
 ## fonts
  pygame.font.SysFont("font_name", 30)
  eg: BUTTON_FONT = pygame.font.SysFont("helvitica", 30)
