@@ -19,7 +19,7 @@ For this algorithm to work properly, the data collection should be in the sorted
 
 <br><br>
 
-####  [Dice Simulator][2]:  
+###  [Dice Simulator][2]:  
 <img align="right" width="300" height="200" src="https://images.pexels.com/photos/4052295/pexels-photo-4052295.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"> 
 As the name suggests, we will be simulating a rolling dice. This is one of the interesting python projects and will generate a random number each dice the program runs, and the users can use the dice repeatedly for as long as he wants. When the user rolls the dice, the program will generate a random number between 1 and 6 (as on a standard dice).  
 
@@ -37,7 +37,7 @@ The thing that is challengng here is to making sure the user enters only years(4
 &nbsp;&nbsp;&nbsp;&nbsp;For a given input a number and the function created checks whether the number belongs to the Fibonacci sequence or not. The underlying program works are similar to the above ‘Leap it!’ program.  
 
 ### [Desktop Notifier][6]:  
-&nbsp;&nbsp;&nbsp;&nbsp;The desktop notifier apps run on your system and send you a piece of information after a fixed interval of time. I suggest you to use libraries such as notify2, requests, etc. to build such a program. 
+&nbsp;&nbsp;&nbsp;&nbsp;The desktop notifier apps run on your system and send you a piece of information after a fixed interval of time. I suggest you to use libraries such as notify2, requests, etc. to build such a program.  
 &nbsp;  
 I personally used the *ToastNotifier* class from the python [win10toast][21] library to finish this project.      
 
@@ -49,13 +49,13 @@ I personally used the *ToastNotifier* class from the python [win10toast][21] lib
 
 ### [Rock, Paper and Scissors][7]:  
 <img align="left" width="200" height="200" src="https://miro.medium.com/max/612/1*G9UfaUBS_VqtFILMe37fZw.jpeg"> 
-The a 5-minute stint of rock, paper, scissors with the computer and designed by you, yourself will improve your mood. 
-&nbsp;  
+The a 5-minute stint of rock, paper, scissors with the computer and designed by you, yourself will improve your mood.  
+
+&nbsp;   
 We again use the random function here. You make a move first and then the program makes one. To indicate the move, you can either use a single alphabet or input an entire string. A function will have to be set up to check the validity of the move.  
+
 &nbsp;   
 Using another function, the winner of that round is decided. You can then either give an option of playing again or decide a pre-determined number of moves in advance. A scorekeeping function will also have to be created which will return the winner at the end.  
-
-<br><br> 
 
 ### [Tic Tac Toe][8]:  
 &nbsp;&nbsp;&nbsp;&nbsp;The players create a 3×3 square grid.While the first player puts “X” in any one of the squares, and the second player will put an “O” in any square. 
