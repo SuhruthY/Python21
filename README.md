@@ -43,8 +43,6 @@ I personally used the *ToastNotifier* class from the python [win10toast][21] lib
 &nbsp;  
 You can use the random module in python to complete this project.  
 
-<br>
-
 ### [Rock, Paper and Scissors][7]:  
 <img align="left" width="200" height="200" src="https://miro.medium.com/max/612/1*G9UfaUBS_VqtFILMe37fZw.jpeg"> 
 &nbsp;&nbsp;&nbsp;&nbsp;The a 5-minute stint of rock, paper, scissors with the computer and designed by you, yourself will improve your mood.  
