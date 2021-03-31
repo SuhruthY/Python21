@@ -10,14 +10,14 @@ and provide some references for further study.
 ## Easy Bundle
 &nbsp;&nbsp;&nbsp;&nbsp;The *Easy Bundle* is a set of simple python mini-projects which uses basic python fundamentals. It comprises of projects like  
 
-### [Binary Search][1]:   
-<img align="right" width="300" height="200" src="https://cdn.techterms.com/img/lg/binary_14.jpg">  
+### [Binary Search][1]:    
+<img align="right" width="300" height="200" src="https://cdn.techterms.com/img/lg/binary_14.jpg">   
 Binary search looks for a particular item by comparing the middle most item of the collection. If a match occurs, then the index of item is returned. If the middle item is greater than the item, then the item is searched in the sub-array to the left of the middle item. Otherwise, the item is searched for in the sub-array to the right of the middle item. This process continues on the sub-array as well until the size of the subarray reduces to zero.  
 
 &nbsp;    
 For this algorithm to work properly, the data collection should be in the sorted form.    
 
-<br><br>
+<br>
 
 ###  [Dice Simulator][2]:  
 <img align="right" width="300" height="200" src="https://images.pexels.com/photos/4052295/pexels-photo-4052295.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"> 
@@ -26,7 +26,7 @@ As the name suggests, we will be simulating a rolling dice. This is one of the i
 &nbsp;  
 I used the command line to simulate the dice but you can go a step further creating a simple GUI.
 
-<br><br>
+<br>
 
 ### [Leap it!][4]:  
 &nbsp;&nbsp;&nbsp;&nbsp;For a given input a year you neeed to check whether it is a leap year or not. For this, you’ll have to create a function that recognizes the pattern of leap years and can try fitting the inputted year into the pattern. In the end, you can print the result using a boolean expression.   
