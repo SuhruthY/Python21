@@ -36,35 +36,32 @@ The thing that is challengng here is to making sure the user enters only years(4
 ### [Find out, Fibonacci!][3]:  
 &nbsp;&nbsp;&nbsp;&nbsp;For a given input a number and the function created checks whether the number belongs to the Fibonacci sequence or not. The underlying program works are similar to the above ‘Leap it!’ program.  
 
-### [Number Guessing][5]:
-&nbsp;&nbsp;&nbsp;&nbsp;The computer will generate a random number between 1 and 100 and the user needs to guess it. If the guess is wrong then you will be provided with a clue saying the number you guessed is greater or lesser than the original number. You can use the random module in python to complete this project.  
-
 ### [Desktop Notifier][6]:  
 &nbsp;&nbsp;&nbsp;&nbsp;The desktop notifier apps run on your system and send you a piece of information after a fixed interval of time. I suggest you to use libraries such as notify2, requests, etc. to build such a program. 
-
 &nbsp;  
-I personally used the *ToastNotifier* class from the python [win10toast][21] library to finish this project.    
+I personally used the *ToastNotifier* class from the python [win10toast][21] library to finish this project.      
+
+### [Number Guessing][5]:
+<img align="right" width="300" height="200" src="https://i.pinimg.com/originals/2e/e9/62/2ee9625a733381b5f2cfb4123ecb7d3d.png">
+&nbsp;&nbsp;&nbsp;&nbsp;The computer will generate a random number between 1 and 100 and the user needs to guess it. If the guess is wrong then you will be provided with a clue saying the number you guessed is greater or lesser than the original number. You can use the random module in python to complete this project.  
+
+<br>
 
 ### [Rock, Paper and Scissors][7]:  
 <img align="left" width="200" height="200" src="https://miro.medium.com/max/612/1*G9UfaUBS_VqtFILMe37fZw.jpeg"> 
 The a 5-minute stint of rock, paper, scissors with the computer and designed by you, yourself will improve your mood. 
-
 &nbsp;  
 We again use the random function here. You make a move first and then the program makes one. To indicate the move, you can either use a single alphabet or input an entire string. A function will have to be set up to check the validity of the move.  
-
 &nbsp;   
 Using another function, the winner of that round is decided. You can then either give an option of playing again or decide a pre-determined number of moves in advance. A scorekeeping function will also have to be created which will return the winner at the end.  
 
 <br><br> 
 
 ### [Tic Tac Toe][8]:  
-<img align="right" width="200" height="200" src="https://miro.medium.com/max/612/1*G9UfaUBS_VqtFILMe37fZw.jpeg"> 
-The players create a 3×3 square grid.While the first player puts “X” in any one of the squares, and the second player will put an “O” in any square. 
+&nbsp;&nbsp;&nbsp;&nbsp;The players create a 3×3 square grid.While the first player puts “X” in any one of the squares, and the second player will put an “O” in any square. 
 This process will continue until all the squares are filled with each player putting X and O alternatively. The player who succeeds in creating a horizontal, vertical, or diagonal with three consecutive X or O on the grid wins.  
-
 &nbsp;  
 I refer the [TicTacToe][22] by clever programmer to create the complete project. All it require is to build various python functions and hence it used the terminal to run the game.  
-
 &nbsp;   
 You can go further one step and make a simple GUI using the Tkinter library.  
 
