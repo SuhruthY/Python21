@@ -12,21 +12,17 @@ and provide some references for further study.
 
 ### [Binary Search][1]:    
 <img align="right" width="300" height="200" src="https://cdn.techterms.com/img/lg/binary_14.jpg">   
-Binary search looks for a particular item by comparing the middle most item of the collection. If a match occurs, then the index of item is returned. If the middle item is greater than the item, then the item is searched in the sub-array to the left of the middle item. Otherwise, the item is searched for in the sub-array to the right of the middle item. This process continues on the sub-array as well until the size of the subarray reduces to zero.  
+&nbsp;&nbsp;&nbsp;&nbsp;Binary search looks for a particular item by comparing the middle most item of the collection. If a match occurs, then the index of item is returned. If the middle item is greater than the item, then the item is searched in the sub-array to the left of the middle item. Otherwise, the item is searched for in the sub-array to the right of the middle item. This process continues on the sub-array as well until the size of the subarray reduces to zero.  
 
 &nbsp;    
 For this algorithm to work properly, the data collection should be in the sorted form.    
 
-<br>
-
 ###  [Dice Simulator][2]:  
 <img align="right" width="300" height="200" src="https://images.pexels.com/photos/4052295/pexels-photo-4052295.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"> 
-As the name suggests, we will be simulating a rolling dice. This is one of the interesting python projects and will generate a random number each dice the program runs, and the users can use the dice repeatedly for as long as he wants. When the user rolls the dice, the program will generate a random number between 1 and 6 (as on a standard dice).  
+&nbsp;&nbsp;&nbsp;&nbsp;As the name suggests, we will be simulating a rolling dice. This is one of the interesting python projects and will generate a random number each dice the program runs, and the users can use the dice repeatedly for as long as he wants. When the user rolls the dice, the program will generate a random number between 1 and 6 (as on a standard dice).  
 
 &nbsp;  
 I used the command line to simulate the dice but you can go a step further creating a simple GUI.
-
-<br>
 
 ### [Leap it!][4]:  
 &nbsp;&nbsp;&nbsp;&nbsp;For a given input a year you neeed to check whether it is a leap year or not. For this, you’ll have to create a function that recognizes the pattern of leap years and can try fitting the inputted year into the pattern. In the end, you can print the result using a boolean expression.   
@@ -43,13 +39,15 @@ I personally used the *ToastNotifier* class from the python [win10toast][21] lib
 
 ### [Number Guessing][5]:
 <img align="right" width="300" height="200" src="https://i.pinimg.com/originals/2e/e9/62/2ee9625a733381b5f2cfb4123ecb7d3d.png">
-&nbsp;&nbsp;&nbsp;&nbsp;The computer will generate a random number between 1 and 100 and the user needs to guess it. If the guess is wrong then you will be provided with a clue saying the number you guessed is greater or lesser than the original number. You can use the random module in python to complete this project.  
+&nbsp;&nbsp;&nbsp;&nbsp;The computer will generate a random number between 1 and 100 and the user needs to guess it. If the guess is wrong then you will be provided with a clue saying the number you guessed is greater or lesser than the original number.  
+&nbsp;  
+You can use the random module in python to complete this project.  
 
 <br>
 
 ### [Rock, Paper and Scissors][7]:  
 <img align="left" width="200" height="200" src="https://miro.medium.com/max/612/1*G9UfaUBS_VqtFILMe37fZw.jpeg"> 
-The a 5-minute stint of rock, paper, scissors with the computer and designed by you, yourself will improve your mood.  
+&nbsp;&nbsp;&nbsp;&nbsp;The a 5-minute stint of rock, paper, scissors with the computer and designed by you, yourself will improve your mood.  
 
 &nbsp;   
 We again use the random function here. You make a move first and then the program makes one. To indicate the move, you can either use a single alphabet or input an entire string. A function will have to be set up to check the validity of the move.  
