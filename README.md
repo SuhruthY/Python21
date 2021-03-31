@@ -13,8 +13,8 @@ and provide some references for further study.
 ### [Binary Search][1]:   
 <img align="left" width="200" height="200" src="https://cdn.techterms.com/img/lg/binary_14.jpg">  
 Binary search looks for a particular item by comparing the middle most item of the collection. If a match occurs, then the index of item is returned. If the middle item is greater than the item, then the item is searched in the sub-array to the left of the middle item. Otherwise, the item is searched for in the sub-array to the right of the middle item. This process continues on the sub-array as well until the size of the subarray reduces to zero.  
-&nbsp;    
 
+&nbsp;    
 For this algorithm to work properly, the data collection should be in the sorted form.    
 
 <br><br>
@@ -22,8 +22,8 @@ For this algorithm to work properly, the data collection should be in the sorted
 ####  [Dice Simulator][2]:  
 <img align="right" width="300" height="200" src="https://images.pexels.com/photos/4052295/pexels-photo-4052295.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"> 
 As the name suggests, we will be simulating a rolling dice. This is one of the interesting python projects and will generate a random number each dice the program runs, and the users can use the dice repeatedly for as long as he wants. When the user rolls the dice, the program will generate a random number between 1 and 6 (as on a standard dice).  
-&nbsp;  
 
+&nbsp;  
 I used the command line to simulate the dice but you can go a step further creating a simple GUI.
 
 <br><br>
@@ -41,18 +41,18 @@ The thing that is challengng here is to making sure the user enters only years(4
 
 ### [Desktop Notifier][6]:  
 &nbsp;&nbsp;&nbsp;&nbsp;The desktop notifier apps run on your system and send you a piece of information after a fixed interval of time. I suggest you to use libraries such as notify2, requests, etc. to build such a program. 
-&nbsp;  
 
+&nbsp;  
 I personally used the *ToastNotifier* class from the python [win10toast][21] library to finish this project.    
 
 ### [Rock, Paper and Scissors][7]:  
 <img align="left" width="200" height="200" src="https://miro.medium.com/max/612/1*G9UfaUBS_VqtFILMe37fZw.jpeg"> 
 The a 5-minute stint of rock, paper, scissors with the computer and designed by you, yourself will improve your mood. 
+
 &nbsp;  
-
 We again use the random function here. You make a move first and then the program makes one. To indicate the move, you can either use a single alphabet or input an entire string. A function will have to be set up to check the validity of the move.  
-&nbsp;   
 
+&nbsp;   
 Using another function, the winner of that round is decided. You can then either give an option of playing again or decide a pre-determined number of moves in advance. A scorekeeping function will also have to be created which will return the winner at the end.  
 
 <br><br> 
@@ -61,11 +61,11 @@ Using another function, the winner of that round is decided. You can then either
 <img align="right" width="200" height="200" src="https://miro.medium.com/max/612/1*G9UfaUBS_VqtFILMe37fZw.jpeg"> 
 The players create a 3×3 square grid.While the first player puts “X” in any one of the squares, and the second player will put an “O” in any square. 
 This process will continue until all the squares are filled with each player putting X and O alternatively. The player who succeeds in creating a horizontal, vertical, or diagonal with three consecutive X or O on the grid wins.  
+
 &nbsp;  
-
 I refer the [TicTacToe][22] by clever programmer to create the complete project. All it require is to build various python functions and hence it used the terminal to run the game.  
-&nbsp;   
 
+&nbsp;   
 You can go further one step and make a simple GUI using the Tkinter library.  
 
 ## Madlibs  
