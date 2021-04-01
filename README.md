@@ -80,7 +80,6 @@ On his way he will meet many people who will help or obstruct him to reach his f
 - You can go with any story that you like but make sure to make this game on command line so it will have that old-school look.  
 - Some other stories ans themes can be found here: [10 modern text-based adventures][24]  
 
-
 ## Story Generator
 &nbsp;&nbsp;&nbsp;&nbsp;The program will ask users for inputs such as the name of a place, action, etc. and then build a story around the data. The story will be the same always but with little variation with the input.
 - I personally used the *Stanford-NER tagger* and *Stanford-POS tagger* inorder to attach correct parts of speech in the story I generate.
@@ -89,7 +88,9 @@ On his way he will meet many people who will help or obstruct him to reach his f
 - Then I used the python module [`nltk`][27] to tokenize the plot of each movie and collected some words with thier parts of speech.
 - Finally I used some functions to replace the plots with some new words and create a new story.
  
+&nbsp;  
 
+[`previous page`][28] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [`next page`][29]                       
 
 
 
@@ -111,3 +112,5 @@ On his way he will meet many people who will help or obstruct him to reach his f
 [25]: https://nlp.stanford.edu/software/stanford-corenlp-latest.zip
 [26]: https://nlp.stanford.edu/software/stanford-tagger-4.2.0.zip
 [27]: https://www.nltk.org/
+[28]: https://suhruthy.github.io/FirstFifty/
+[29]: https://suhruthy.github.io/FirstFifty/README2
