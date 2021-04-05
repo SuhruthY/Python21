@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>WhY to-do List app: my first web-based application</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,700;1,400&family=Poppins:ital,wght@1,300&family=Raleway:wght@400;700&display=swap");
+        @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@700&display=swap");
+        :root {
+          --primary-color: #F37900;
+          --secondary-color: #007AF3;
+          --bg-color: #C3E0E5; }
+
+        body {
+          background: var(--bg-color);
+          margin: 0;
+          font-family: "Nunito"; }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+          font-family: 'Raleway', sans-serif;
+          text-transform: capitalize;
+          font-weight: bold;
+          text-align: center;
+          margin-left: auto;
+          margin-right: auto;
+          width: 8em; }
+          h1 .one,
+          h2 .one,
+          h3 .one,
+          h4 .one,
+          h5 .one,
+          h6 .one {
+            color: var(--primary-color); }
+          h1 .two,
+          h2 .two,
+          h3 .two,
+          h4 .two,
+          h5 .two,
+          h6 .two {
+            color: var(--secondary-color); }
+
+        a {
+          text-decoration: none; }
+
+        ul {
+          list-style-type: none;
+          margin: 0;
+          padding: 0; }
+
+        section {
+          padding: 5em 2em;
+          margin: 0; }
+
+        .navbar {
+          background: white;
+          padding: 0;
+          margin-left: .2em; }
+          .navbar .nav-brand {
+            text-decoration: none;
+            font-weight: bold;
+            color: black;
+            font-size: 1em;
+            margin-top: .7em;
+            margin-left: .2em; }
+            .navbar .nav-brand .one {
+              color: var(--primary-color); }
+            .navbar .nav-brand .two {
+              color: var(--secondary-color); }
+          .navbar nav {
+            display: none; }
+          .navbar .container {
+            display: flex;
+            place-content: space-between; }
+          .navbar .mobile-menu {
+            text-align: right;
+            margin-right: .2em;
+            padding: .25em;  
+            cursor: pointer; }
+
+        nav.mobile-btn {
+          display: block; }
+
+        nav {
+          position: fixed;
+          z-index: 999;
+          width: 60%;
+          right: 0;
+          top: 0;
+          background: #5885AF;
+          height: 100vh;
+          padding: 1em; }
+          nav ul.primary-nav {
+            margin-top: 3em; }
+          nav li {
+            text-decoration: none;
+            display: block;
+            padding: .5em;
+            font-size: 1.2em;
+            text-align: right; }
+            nav li:hover {
+              font-weight: bold; }
+            nav li a {
+              color: white; }
+
+        .mobile-menu-exit {
+          float: right;
+          margin: .5em; 
+          cursor: pointer; }
+
+        nav.menu-btn {
+          display: block; }
+
+        .hero {
+          margin-top: 4.3em;
+          text-align: center;
+          border-radius: 5px 5px 0 0;
+          padding: 10px;
+          background-color: var(--bg-color); }
+          .hero .container {
+            max-width: 550px;
+            padding: .25em;
+            margin: auto;
+            background: white;
+            -webkit-box-shadow: 2px 2px 13px -4px rgba(0, 0, 0, 0.21);
+            box-shadow: 2px 2px 13px -4px rgba(0, 0, 0, 0.21); }
+
+        .header-bar {
+          display: flex;
+          justify-content: space-between;
+          color: white;
+          font-weight: bold;
+          border-radius: 5px 5px 0 0;
+          padding: 10px;
+          background: linear-gradient(90deg, #EEA390 0%, #EB796F 43%, #EB796F 100%); }
+          .header-bar h2 {
+            justify-content: center; }
+          .header-bar h3 {
+            margin: .6em 0 0 0;
+            padding: 0;
+            font-size: 100%;
+            font-family: "Nunito";
+            font-weight: bold;
+            font-style: italic;
+            text-transform: lowercase; }
+            .header-bar h3:first-letter {
+              text-transform: capitalize; }
+          .header-bar a {
+            color: white;
+            font-family: "Poppins";
+            font-size: 80%;
+            font-style: italic; }
+
+        .wrapper {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding: 20px;
+          background-color: white;
+          border-radius: 1px solid #e2e2e2; }
+
+        .task-title {
+          display: flex; }
+          .task-title a {
+            text-decoration: none;
+            color: #4B5156;
+            margin-left: .1em; }
+
+        .task-complete-icon {
+          height: 20px;
+          width: 20px;
+          background-color: #69c069;
+          border-radius: 50%; }
+
+        .task-incomplete-icon {
+          height: 20px;
+          width: 20px;
+          background-color: #dadada;
+          border-radius: 50%; }
+
+        .delete-link, .edit-link {
+          text-decoration: none;
+          font-weight: bold;
+          font-size: 1.5em;
+          color: #cf4949;
+          font-size: 22px;
+          line-height: 0; }
+
+        .search-add-wrapper {
+          display: flex;
+          align-item: center;
+          padding: .5em;
+          background-color: white;
+          justify-content: space-between; }
+          .search-add-wrapper form {
+            display: flex;
+            margin: .7em 1.5em .7em 1.5em; }
+          .search-add-wrapper .add-link {
+            color: #E8796F;
+            font-size: 42px;
+            text-decoration: none;
+            margin: 0 .5em 0 .5em;
+            text-shadow: 1px 1px #81413B; }
+
+        input[type=text],
+        input[type=password],
+        textarea {
+          border: 1px solid #EB796F;
+          border-radius: 5px;
+          padding: 10px;
+          width: 90%; }
+
+        label {
+          padding: 10px;
+          display: block; }
+
+        .button {
+          border: 1px solid #EB796F;
+          background-color: #EB796F;
+          color: white;
+          padding: 10px;
+          font-size: 14px;
+          border-radius: 5px;
+          cursor: pointer;
+          text-decoration: none; }
+
+        .task-viewer {
+          text-align: left; }
+          .task-viewer span {
+            font-weight: bold; }
+
+        .card-body {
+          text-align: left;
+          padding: 20px; }
+          .card-body label {
+            font-weight: bold;
+            padding: 0;
+            margin-top: .2em; }
+
+        section.features-section {
+          background: #5885AF;
+          color: white;
+          margin: 4em 0 4em 0; }
+
+        ul.features-list {
+          margin: 0;
+          padding-left: .1em;
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(19rem, 1fr)); }
+          ul.features-list li {
+            font-size: 1.1em;
+            margin-bottom: 1em;
+            margin-left: 2em;
+            position: relative; }
+            ul.features-list li span {
+              left: -1.2em;
+              position: absolute;
+              font-size: 21px; }
+
+        .features-section img {
+          display: none; }
+
+        .testimonials-section {
+          background: #5885AF;
+          color: white; }
+          .testimonials-section li {
+            background: var(--primary-color);
+            text-align: center;
+            padding: 2em 3em;
+            width: 80%;
+            margin: 0 auto 5em auto;
+            border-radius: 1em; }
+            .testimonials-section li img {
+              width: 5em;
+              height: 5em;
+              border: 5px solid var(--primary-color);
+              border-radius: 50%;
+              margin-top: -4.5em; }
+              .testimonials-section li img:hover {
+                cursor: pointer; }
+
+        footer {
+          background-color: white;
+          justify-content: center;
+          text-align: center; }
+          footer a {
+            cursor: pointer; }
+            footer a:hover {
+              font-weight: bold;
+              opacity: 0.7; }
+          footer h3 {
+            font-family: "Raleway";
+            font-weight: bold; }
+
+        .footer-author a {
+          color: black; }
+        .footer-author .logo {
+          font-family: "helvitica";
+          font-weight: bold;
+          font-size: 1.2em; }
+        .footer-author .copy.right {
+          color: var(--secondary-color); }
+        .footer-author .copy.content {
+          font-weight: bold; }
+        .footer-author {
+          padding-top: .5em;}            
+
+        .footer-social-icons li {
+          display: inline-block;
+          padding: .5em; }
+
+        .fa {
+          padding: 20px;
+          font-size: 30px;
+          text-align: center;
+          text-decoration: none;
+          box-sizing: border-box;
+          border-radius: 50%;
+          color: white; }
+          .fa:hover {
+            opacity: 0.7;
+            cursor: pointer; }
+
+        /* Set a specific color for each brand */
+        /* Facebook */
+        .fa-facebook {
+          background: #3B5998; }
+
+        /* Twitter */
+        .fa-twitter {
+          background: #55ACEE; }
+
+        /* Linkedin */
+        .fa-linkedin {
+          background: #0077B5; }
+
+        /* GitHub */
+        .fa-github {
+          background: #6CC644; }
+
+        /* Pinterest */
+        .fa-pinterest {
+          background: #E60023; }
+
+        .footer-references ul {
+          display: inline-block;
+          text-align: left; }
+        .footer-references h3 {
+          text-align: center; }
+        .footer-references li {
+          font-style: italic; }
+          .footer-references li:first-letter {
+            text-transform: capitalize; }
+        .footer-references .code-sample {
+          margin-top: .1em; }
+        .footer-references {
+           padding-bottom: .5em;}
+
+        @media only screen and (min-width: 754px) {
+          .mobile-menu, .mobile-menu-exit {
+            display: none; }
+
+          .navbar .container {
+            display: grid;
+            grid-template-columns: 180px auto;
+            justify-content: unset; }
+
+          .navbar nav {
+            display: flex;
+            justify-content: space-between;
+            background: none;
+            position: unset;
+            height: auto;
+            width: 100%;
+            padding: 0; }
+            .navbar nav ul {
+              display: flex; }
+            .navbar nav a {
+              color: black;
+              font-size: .7em;
+              padding: .1em 1em;
+              text-decoration: none; }
+            .navbar nav ul.primary-nav {
+              margin: 0; }
+            .navbar nav li.current a {
+              font-weight: bold; }
+            .navbar nav li.get-started-cta a {
+              color: var(--primary-color);
+              border: 3px solid var(--primary-color);
+              font-weight: bold;
+              border-radius: 5em;
+              margin-top: .2em; }
+              .navbar nav li.get-started-cta a:hover {
+                background: var(--primary-color);
+                color: white; }
+
+          .footer-container {
+            background-color: white; }
+            .footer-container .footer-author {
+              background-color: white;
+              float: left;
+              width: 40%;
+              padding-top: 5.5em;
+              padding-bottom: 5em; }
+            .footer-container .footer-social-icons {
+              background-color: white;
+              float: left;
+              height: 30%;
+              width: 60%; }
+            .footer-container .footer-references {
+              background-color: white;
+              float: right;
+              height: 70%;
+              width: 60%;
+              padding-top: .25em; } }
+        @media only screen and (min-width: 900px) {
+          .container {
+            width: 1000px;
+            margin: 0 auto; }
+
+          section {
+            padding: 10em 4em; }
+
+          ul.features-list {
+            display: block;
+            margin-left: 5em; }
+            ul.features-list li {
+              font-size: 1.4em; }
+              ul.features-list li:before {
+                width: 30px;
+                height: 30px; }
+
+          .features-section {
+            position: relative; }
+
+          .features-section img {
+            content: "";
+            display: block;
+            position: absolute;
+            right: 0;
+            width: 350px;
+            bottom: -2em; }
+
+          .testimonials-section ul {
+            display: flex; }
+            .testimonials-section ul li {
+              margin: 0 1em; } }
+        .disabled-link {
+          pointer_events: none; }
+
+        /*# sourceMappingURL=style.css.map */
+    </style>
+</head>
+<body>
+    <!--  The Navigation Bar -->
+    <div class="navbar">
+        <div class="container">
+            <a class="nav-brand" href="#">WhY<span class="one">to</span><span class="two">do</span>List</a>
+            
+            <img id="mobile-cta" class="mobile-menu" src="https://img.icons8.com/material-rounded/24/000000/menu--v1.png" alt="open navigation"/>
+
+            <nav>                
+                <img id="mobile-exit" class="mobile-menu-exit" src="https://img.icons8.com/ios-glyphs/26/000000/multiply.png" alt="close navigation"/>
+
+                <ul class="primary-nav">
+                    <li class="current"><a href="#">Home</a></li>
+                    <li><a href="https://suhruthy.github.io/SuhruthY/">About</a></li>
+                    <li><a href="#contact-section">Contact</a></li>
+                </ul>
+                <ul class="secondary-nav">
+                    <li><a href="https://suhruthy.github.io/FirstFifty/whytodolist">Help</a></li>
+                    {% if request.user.is_authenticated %}
+                        <li class="get-started-cta"><a href="{% url 'logout' %}">Logout</a></li>
+                    {% else %}
+                        <li class="get-started-cta"><a href="{% url 'login' %}">Login/Signup</a></li>
+                    {% endif %}
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <!--  The Navigation Bar ends -->
+
+    <!--  Hero section  -->
+    <section class="hero">
+        <div class="container">
+            {% block content %}
+
+            {% endblock content %}
+        </div>
+    </section>
+    <!--  Hero section ends -->
+
+    <!--  App details & other projects  -->
+    <section class="features-section">
+        <div class="container">
+            <ul class="features-list">
+                <li><span>&#8226;</span> Pre-Built Administration</li>
+                <li><span>&#8226;</span> Provides User Specific Content</li>
+                <li><span>&#8226;</span> Restrict Unauthorized Users</li>
+                <li><span>&#8226;</span> A Regex Powerd Search Engine</li>
+                <li><span>&#8226;</span> Mobile Responsive CSS</li>
+                <li><span>&#8226;</span> Other awesome features</li>
+            </ul>
+
+            <img src="https://images.pexels.com/photos/4057737/pexels-photo-4057737.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="checklist">
+        </div>
+    </section>
+
+    <section class="testimonials-section">
+        <div class="container">
+            <ul>
+                <li>
+                    <a href="https://suhruthy.github.io/FirstFifty/">
+                        <img src="https://images.pexels.com/photos/1181359/pexels-photo-1181359.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Project-1">
+                    </a>    
+                    <blockquote>"The greatest thing that a python beginner can do is working on some real-world projects."</blockquote>
+                    <name>First Fifty</name>
+                </li><li>
+                    <a href="https://suhruthy.github.io/TheSocialMediaAnalytics/">
+                        <img src="https://images.pexels.com/photos/267350/pexels-photo-267350.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Project-2">
+                    </a>    
+                    <blockquote>"Gathering and analyzing data from social networks such as Twitter, Youtube, GitHub, Forums, etc."</blockquote>
+                    <cite>Social-Media Analytics</cite>
+                </li><li>
+                    <a href="https://suhruthy.github.io/AIvsMLvsDL/">
+                        <img src="https://images.pexels.com/photos/4604607/pexels-photo-4604607.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940g" alt="Project-3">
+                    </a>    
+                    <blockquote>"A project in which I dive deep into the AI and ML world and mastering the fundamentals."</blockquote>
+                    <cite>AI vs ML</cite>
+                </li>
+            </ul>
+        </div>
+    </section>
+    <!--  App details & other projects  -->
+
+    <!--  Java-script  -->
+    <script>
+        const mobileBtn = document.getElementById("mobile-cta")
+              nav = document.querySelector("nav");
+              mobileBtnExit = document.getElementById("mobile-exit");
+
+        mobileBtn.addEventListener("click" ,() => {
+            nav.classList.add("menu-btn")
+        })
+
+        mobileBtnExit.addEventListener("click" ,() => {
+            nav.classList.remove("menu-btn")
+        })
+
+    </script>
+    <!--  Java-script ends -->
+</body>
+<footer>
+    <a id="contact-section"></a>
+    <div class="footer-wrapper">
+        <div class="footer-container">
+            <div class="footer-author">
+                <a class="logo" href="#">Suhruth Y</a><br>
+                <span>
+                    <span class="copy right">&copy;</span><span class="copy content"> 2021 WhY</span><br>
+
+                    <p><a href="mailto:suhruthyambakam822001@gmail.com">Send me a mail</a><br>
+                        <a href="https://twitter.com/intent/tweet?screen_name=821Suhruth">Tweet me on twitter</a><br>
+                        <span>Ph no.</span><a href=""> +91-7993920280</a></p>
+
+                </span>
+            </div><br>
+            <div class="footer-social-icons">
+                <h3>Follow me on</h3>
+                <ul>
+                    <li><a href="https://www.facebook.com/suhruth.y/"><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="https://www.twitter.com/821suhruth/"><i class="fa fa-twitter"></i></a></li>
+                    <li><a href="http://www.linkedin.com/in/suhruthy"><i class="fa fa-linkedin"></i></a></li>
+                    <li><a href="https://www.github.com/suhruthy/"><i class="fa fa-github"></i></a></li>
+                    <li><a href="https://www.pinterest.com/821Suhruth/"><i class="fa fa-pinterest"></i></a></li>
+                </ul>
+            </div><br>
+            <div class="footer-references">
+                <h3>Need help?</h3>
+                <ul>
+                    <li>&#8226;<a href="https://docs.djangoproject.com/en/3.1/"> Django documentation</a></li>
+                    <li>&#8226;<a href="https://www.w3schools.com/"> w3schools</a></li>
+                    <li class="code-sample">&#8226;<a href="#"> Sample code</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+</html>

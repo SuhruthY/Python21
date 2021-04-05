@@ -1,0 +1,44 @@
+{% extends 'main.html' %}
+{% block content %}
+
+    <!-- header -->
+    <div class="header-bar">
+        <h1>Hello {{request.user|title}}</h1>
+        <h3>You have <i>{{count}}</i> incomplete task{{count|pluralize}}</h3>
+    </div>
+
+    <!--  Buttons -->
+    <div class="search-add-wrapper">
+        <form method="get">
+            <input type="text" name="search-area" value="{{search_input}}">
+            <input type="submit" class="button" value="Search">
+        </form>
+        <a class="add-link" href="{% url 'add-task' %}">&#x2b;</a>
+    </div>
+
+    <!--  task items  -->
+    <div class="task-items-wrapper">
+        {% for task in tasks %}
+        <div class="wrapper">
+            {% if task.completed %}
+                <div class="task-title">
+                    <div class="task-complete-icon"></div>
+                    <i><s><a href="{% url 'task' task.id %}">{{task}}</a></s></i>
+                </div>
+            <a class="edit-link" href="{% url 'edit-task' task.id %}">&#9998;</a>
+            <a class="delete-link" href="{% url 'del-task' task.id %}">&#215;</a>
+            {% else %}
+                <div class="task-title">
+                    <div class="task-incomplete-icon"></div>
+                    <a href="{% url 'task' task.id %}">{{task}}</a>
+                </div>
+            <a class="edit-link" href="{% url 'edit-task' task.id %}">&#9998;</a>
+            <a class="delete-link" href="{% url 'del-task' task.id %}">&#215;</a>
+            {% endif %}
+        </div>
+        {% empty %}
+            <h1>No items in list</h1>
+        {% endfor %}
+    </div>
+
+{% endblock content %}

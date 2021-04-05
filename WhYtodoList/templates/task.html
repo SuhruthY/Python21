@@ -1,0 +1,25 @@
+{% extends 'main.html' %}
+{% block content %}
+    <!--  header  -->
+     <div class="header-bar">
+         <a href="{% url 'tasks' %}">&#8592 Back</a>
+         <h1>{{task}}</h1>
+         <h4><span class="header-bold">Created at:</span>  {{task.created|date:"F d, Y"}}</h4>
+     </div>
+
+    <!--  task details  -->
+    <div class="wrapper">
+        <div class="task-viewer">
+         {% if task.description %}
+         <p><span>Description:</span> {{task.description}}</p>
+         {% endif %}
+
+         {% if task.completed %}
+            <p><span>Task status:</span> Task Finished</p>
+         {% else %}
+            <p><span>Task status:</span> Task Pending</p>
+         {% endif %}
+        </div>
+    </div>
+
+{% endblock content %}

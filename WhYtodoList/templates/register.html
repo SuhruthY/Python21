@@ -1,0 +1,26 @@
+{% extends 'main.html' %}
+{% block content %}
+
+    <!--  logo  -->
+    <div class="header-bar">
+        <h1>Register</h1>
+    </div>
+
+    <!-- form content-->
+    <div class="card-body">
+        <form method="post">
+            {%csrf_token %}
+            <p><label>{{form.username.label}}</label>
+                {{form.username}}</p>
+            <p><label>{{form.password1.label}}</label>
+                {{form.password1}}</p>
+            <p><label>{{form.password2.label}}</label>
+                {{form.password2}}</p>
+            <input type="submit" class="button" value="Sign Up">
+        </form>
+    </div>
+    <div class="sign-up-panel">
+        <p>Already have an account? <a href="{% url 'login' %}">Log in</a></p>
+    </div>
+
+{% endblock content %}
