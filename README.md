@@ -117,4 +117,4 @@ On his way he will meet many people who will help or obstruct him to reach his f
 [26]: https://nlp.stanford.edu/software/stanford-tagger-4.2.0.zip
 [27]: https://www.nltk.org/
 [28]: https://suhruthy.github.io/FirstFifty/
-[29]: https://suhruthy.github.io/FirstFifty/README2
+[29]: https://suhruthy.github.io/FirstFifty/page2
