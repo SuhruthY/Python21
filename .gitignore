@@ -152,5 +152,6 @@ fabric.properties
 
 # Custom git ignore
 !StreamlitProjs/
+!BioScraper/
 
 
